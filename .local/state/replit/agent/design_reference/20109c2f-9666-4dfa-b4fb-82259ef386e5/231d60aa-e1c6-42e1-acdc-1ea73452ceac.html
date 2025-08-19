@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarah Chen - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'rose-pink': '#F472B6',
+                        'blush': '#FDF2F8',
+                        'deep-rose': '#BE185D',
+                    },
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'dancing': ['Dancing Script', 'cursive'],
+                        'inter': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Dancing+Script:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .floral-bg {
+            background-image: url('https://images.unsplash.com/photo-1522383225653-ed111181a951?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .gradient-overlay {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(253,242,248,0.9) 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .floating-nav {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+    </style>
+</head>
+<body class="font-inter bg-white text-gray-700">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 floating-nav border-b border-rose-pink/20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="font-dancing text-2xl text-deep-rose font-semibold">
+                    Sarah Chen
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-rose-pink transition-colors">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-rose-pink transition-colors">About</a>
+                    <a href="#projects" class="text-gray-700 hover:text-rose-pink transition-colors">Projects</a>
+                    <a href="#resume" class="text-gray-700 hover:text-rose-pink transition-colors">Resume</a>
+                    <a href="#contact" class="text-gray-700 hover:text-rose-pink transition-colors">Contact</a>
+                </div>
+                <button class="md:hidden text-rose-pink">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen floral-bg flex items-center">
+        <!-- Soft pink cherry blossoms and delicate florals -->
+        <div class="gradient-overlay w-full min-h-screen flex items-center">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                <div class="text-center fade-in">
+                    <h1 class="font-playfair text-5xl md:text-7xl font-bold text-gray-800 mb-6">
+                        Sarah Chen
+                    </h1>
+                    <p class="font-dancing text-2xl md:text-3xl text-rose-pink mb-8">
+                        Creative Designer & Developer
+                    </p>
+                    <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-12 leading-relaxed">
+                        Crafting beautiful digital experiences with a passion for elegant design 
+                        and thoughtful user interactions. Welcome to my creative journey.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="#projects" class="bg-rose-pink text-white px-8 py-3 rounded-full hover:bg-deep-rose transition-colors inline-flex items-center gap-2">
+                            <span>View My Work</span>
+                            <i class="fas fa-arrow-down"></i>
+                        </a>
+                        <a href="#contact" class="border-2 border-rose-pink text-rose-pink px-8 py-3 rounded-full hover:bg-rose-pink hover:text-white transition-colors">
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-blush">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <!-- Portrait photo with warm, natural lighting -->
+                    <img src="https://pixabay.com/get/g913a7bdfda16adc3861646e1949a89b7a46437c46ca3f7ee15a784dcc3497ec99d2b8175243e1984fa4cc64813746454f882bbd168e50fdc93fb58d7af68a668_1280.jpg" 
+                         alt="Sarah Chen professional portrait" 
+                         class="rounded-2xl shadow-xl w-full max-w-md mx-auto" />
+                </div>
+                <div class="fade-in">
+                    <h2 class="font-playfair text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                        About Me
+                    </h2>
+                    <div class="space-y-6 text-gray-600 leading-relaxed">
+                        <p>
+                            Hello! I'm Sarah, a passionate designer and developer based in San Francisco. 
+                            With over 5 years of experience in creating digital experiences, I specialize 
+                            in combining beautiful aesthetics with functional design.
+                        </p>
+                        <p>
+                            My journey began with a love for art and technology, leading me to discover 
+                            the perfect intersection in web design and development. I believe that great 
+                            design should not only look beautiful but also solve real problems and 
+                            create meaningful connections.
+                        </p>
+                        <p>
+                            When I'm not designing, you can find me exploring local farmers markets, 
+                            practicing watercolor painting, or tending to my collection of houseplants.
+                        </p>
+                    </div>
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <span class="bg-white text-rose-pink px-4 py-2 rounded-full text-sm border border-rose-pink/20">UI/UX Design</span>
+                        <span class="bg-white text-rose-pink px-4 py-2 rounded-full text-sm border border-rose-pink/20">Frontend Development</span>
+                        <span class="bg-white text-rose-pink px-4 py-2 rounded-full text-sm border border-rose-pink/20">Branding</span>
+                        <span class="bg-white text-rose-pink px-4 py-2 rounded-full text-sm border border-rose-pink/20">Illustration</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                    Featured Projects
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    A collection of my recent work showcasing creative solutions and thoughtful design approaches.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden border border-rose-pink/10 fade-in">
+                    <!-- Modern e-commerce website with clean product layouts -->
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+                         alt="Bloom & Co e-commerce website mockup" 
+                         class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <h3 class="font-playfair text-xl font-semibold text-gray-800 mb-3">Bloom & Co.</h3>
+                        <p class="text-gray-600 mb-4">
+                            E-commerce platform for sustainable fashion with a focus on clean design and user experience.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-blush text-deep-rose px-2 py-1 rounded">React</span>
+                            <span class="text-xs bg-blush text-deep-rose px-2 py-1 rounded">Shopify</span>
+                            <span class="text-xs bg-blush text-deep-rose px-2 py-1 rounded">UI/UX</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" class="text-rose-pink hover:text-deep-rose transition-colors">
+                                <i class="fas fa-external-link-alt"></i> Live Site
+                            </a>
+                            <a href="#" class="text-rose-pink hover:text-deep-rose transition-colors">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden border border-rose-pink/10 fade-in">
+                    <!-- Wellness app interface with calming colors -->
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+                         alt="Mindful wellness app interface design" 
+                         class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <h3 class="font-playfair text-xl font-semibold text-gray-800 mb-3">Mindful</h3>
+                        <p class="text-gray-600 mb-4">
+                            Mobile wellness app focused on meditation and mindfulness with soothing design elements.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-blush text-deep-rose px-2 py-1 rounded">Flutter</span>
+                            <span class="text-xs bg-blush text-deep-rose px-2 py-1 rounded">Figma</span>
+                            <span class="text-xs bg-blush text-deep-rose px-2 py-1 rounded">Mobile</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" class="text-rose-pink hover:text-deep-rose transition-colors">
+                                <i class="fas fa-external-link-alt"></i> Case Study
+                            </a>
+                            <a href="#" class="text-rose-pink hover:text-deep-rose transition-colors">
+                                <i class="fab fa-figma"></i> Design
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden border border-rose-pink/10 fade-in">
+                    <!-- Creative portfolio website with artistic elements -->
+                    <img src="https://pixabay.com/get/g0269a69b15f09c66ffb0810f7eb5c59fef891cab1ac0d2f8570edaacbe27697e1f0e2013536be91d16da76032dd66ce628acaa0c41b25b76af911854e75a508c_1280.jpg" 
+                         alt="Creative agency website with bold typography" 
+                         class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <h3 class="font-playfair text-xl font-semibold text-gray-800 mb-3">Studio Rose</h3>
+                        <p class="text-gray-600 mb-4">
+                            Creative agency website featuring bold typography and interactive animations.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-blush text-deep-rose px-2 py-1 rounded">Vue.js</span>
+                            <span class="text-xs bg-blush text-deep-rose px-2 py-1 rounded">GSAP</span>
+                            <span class="text-xs bg-blush text-deep-rose px-2 py-1 rounded">Web Design</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" class="text-rose-pink hover:text-deep-rose transition-colors">
+                                <i class="fas fa-external-link-alt"></i> Live Site
+                            </a>
+                            <a href="#" class="text-rose-pink hover:text-deep-rose transition-colors">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 fade-in">
+                <a href="#" class="inline-flex items-center gap-2 text-rose-pink hover:text-deep-rose transition-colors">
+                    <span>View All Projects</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="py-20 bg-blush">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                    Resume
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+                    My professional journey and experiences in design and development.
+                </p>
+                <a href="#" class="bg-rose-pink text-white px-8 py-3 rounded-full hover:bg-deep-rose transition-colors inline-flex items-center gap-2">
+                    <i class="fas fa-download"></i>
+                    <span>Download PDF Resume</span>
+                </a>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Experience -->
+                <div class="fade-in">
+                    <h3 class="font-playfair text-2xl font-semibold text-gray-800 mb-8">Experience</h3>
+                    <div class="space-y-8">
+                        <div class="bg-white p-6 rounded-xl border border-rose-pink/10">
+                            <h4 class="font-semibold text-gray-800 text-lg">Senior UI/UX Designer</h4>
+                            <p class="text-rose-pink font-medium">Bloom Creative Agency</p>
+                            <p class="text-gray-500 text-sm mb-3">2022 - Present</p>
+                            <p class="text-gray-600">
+                                Lead design for client projects, mentoring junior designers, and establishing design systems for improved workflow efficiency.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-xl border border-rose-pink/10">
+                            <h4 class="font-semibold text-gray-800 text-lg">Frontend Developer</h4>
+                            <p class="text-rose-pink font-medium">TechFlow Solutions</p>
+                            <p class="text-gray-500 text-sm mb-3">2020 - 2022</p>
+                            <p class="text-gray-600">
+                                Developed responsive web applications using React and Vue.js, collaborating closely with design teams.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-xl border border-rose-pink/10">
+                            <h4 class="font-semibold text-gray-800 text-lg">Junior Designer</h4>
+                            <p class="text-rose-pink font-medium">Pixel Perfect Studio</p>
+                            <p class="text-gray-500 text-sm mb-3">2019 - 2020</p>
+                            <p class="text-gray-600">
+                                Created digital designs for various clients, focusing on branding and web design projects.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Education & Skills -->
+                <div class="fade-in">
+                    <h3 class="font-playfair text-2xl font-semibold text-gray-800 mb-8">Education & Skills</h3>
+                    
+                    <div class="bg-white p-6 rounded-xl border border-rose-pink/10 mb-8">
+                        <h4 class="font-semibold text-gray-800 text-lg">Bachelor of Fine Arts</h4>
+                        <p class="text-rose-pink font-medium">Digital Media Design</p>
+                        <p class="text-gray-500 text-sm">San Francisco Art Institute, 2019</p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-3">Design Tools</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-white text-gray-700 px-3 py-1 rounded-full text-sm border border-rose-pink/20">Figma</span>
+                                <span class="bg-white text-gray-700 px-3 py-1 rounded-full text-sm border border-rose-pink/20">Adobe Creative Suite</span>
+                                <span class="bg-white text-gray-700 px-3 py-1 rounded-full text-sm border border-rose-pink/20">Sketch</span>
+                                <span class="bg-white text-gray-700 px-3 py-1 rounded-full text-sm border border-rose-pink/20">Principle</span>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-3">Development</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-white text-gray-700 px-3 py-1 rounded-full text-sm border border-rose-pink/20">HTML/CSS</span>
+                                <span class="bg-white text-gray-700 px-3 py-1 rounded-full text-sm border border-rose-pink/20">JavaScript</span>
+                                <span class="bg-white text-gray-700 px-3 py-1 rounded-full text-sm border border-rose-pink/20">React</span>
+                                <span class="bg-white text-gray-700 px-3 py-1 rounded-full text-sm border border-rose-pink/20">Vue.js</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                    Let's Connect
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    I'm always excited to collaborate on new projects and connect with fellow creatives. 
+                    Let's create something beautiful together!
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <!-- Coffee shop or workspace setting with laptop -->
+                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+                         alt="Creative workspace with laptop and coffee" 
+                         class="rounded-2xl shadow-xl w-full" />
+                </div>
+                
+                <div class="fade-in space-y-8">
+                    <div class="bg-blush p-8 rounded-2xl">
+                        <h3 class="font-playfair text-2xl font-semibold text-gray-800 mb-6">Get In Touch</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-rose-pink rounded-full flex items-center justify-center">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-800">Email</p>
+                                    <p class="text-gray-600">hello@sarahchen.design</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-rose-pink rounded-full flex items-center justify-center">
+                                    <i class="fas fa-phone text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-800">Phone</p>
+                                    <p class="text-gray-600">+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-rose-pink rounded-full flex items-center justify-center">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-800">Location</p>
+                                    <p class="text-gray-600">San Francisco, CA</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-center gap-6">
+                        <a href="#" class="w-12 h-12 bg-rose-pink rounded-full flex items-center justify-center text-white hover:bg-deep-rose transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-rose-pink rounded-full flex items-center justify-center text-white hover:bg-deep-rose transition-colors">
+                            <i class="fab fa-dribbble"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-rose-pink rounded-full flex items-center justify-center text-white hover:bg-deep-rose transition-colors">
+                            <i class="fab fa-behance"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-rose-pink rounded-full flex items-center justify-center text-white hover:bg-deep-rose transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="font-dancing text-3xl text-rose-pink mb-4">Sarah Chen</div>
+                <p class="text-gray-400 mb-6">
+                    Creating beautiful digital experiences with passion and purpose.
+                </p>
+                <p class="text-gray-500 text-sm">
+                    © 2024 Sarah Chen. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll animation for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu toggle (placeholder functionality)
+        document.querySelector('button').addEventListener('click', function() {
+            // TODO: Implement mobile menu toggle functionality
+            console.log('Mobile menu toggle clicked');
+        });
+
+        // Download resume functionality (placeholder)
+        document.querySelector('a[href="#"]:has(i.fa-download)').addEventListener('click', function(e) {
+            e.preventDefault();
+            // TODO: Implement actual PDF download functionality
+            console.log('Resume download initiated');
+            alert('Resume download would be implemented here');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarah Johnson - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'pink-light': '#F8BBD9',
+                    'pink-lighter': '#FCE7F3',
+                    'pink-lightest': '#FDF2F8',
+                },
+                fontFamily: {
+                    'inter': ['Inter', 'sans-serif'],
+                }
+            }
+        }
+    };
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .page-transition {
+            transition: all 0.3s ease-in-out;
+        }
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .fade-out {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-inter">
+
+    <!-- @COMPONENT: Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50 border-b border-pink-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-semibold text-gray-900">Sarah Johnson</h1>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <button onclick="showPage('about')" class="nav-link text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium transition-colors duration-200" data-page="about">About Me</button>
+                        <button onclick="showPage('projects')" class="nav-link text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium transition-colors duration-200" data-page="projects">Projects</button>
+                        <button onclick="showPage('resume')" class="nav-link text-gray-700 hover:text-pink-600 px-3 py-2 text-sm font-medium transition-colors duration-200" data-page="resume">Resume</button>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-pink-600 hover:bg-pink-50 focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-pink-100">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <button onclick="showPage('about'); toggleMobileMenu()" class="nav-link-mobile block px-3 py-2 text-base font-medium text-gray-700 hover:text-pink-600 hover:bg-pink-50 rounded-md transition-colors duration-200">About Me</button>
+                <button onclick="showPage('projects'); toggleMobileMenu()" class="nav-link-mobile block px-3 py-2 text-base font-medium text-gray-700 hover:text-pink-600 hover:bg-pink-50 rounded-md transition-colors duration-200">Projects</button>
+                <button onclick="showPage('resume'); toggleMobileMenu()" class="nav-link-mobile block px-3 py-2 text-base font-medium text-gray-700 hover:text-pink-600 hover:bg-pink-50 rounded-md transition-colors duration-200">Resume</button>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: Navigation -->
+
+    <!-- @COMPONENT: PageContainer -->
+    <main class="min-h-screen">
+        
+        <!-- @COMPONENT: AboutPage -->
+        <div id="about-page" class="page-content page-transition fade-in">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 md:order-1">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Hello, I'm Sarah</h2>
+                        <div class="space-y-4 text-lg text-gray-600 leading-relaxed">
+                            <p data-mock="true">I'm a passionate UI/UX designer with over 5 years of experience creating beautiful, user-centered digital experiences. I believe great design should be both functional and delightful.</p>
+                            <p data-mock="true">When I'm not designing, you can find me exploring new coffee shops, hiking local trails, or experimenting with new recipes in the kitchen. I'm always looking for inspiration in the world around me.</p>
+                            <p data-mock="true">I love collaborating with teams to solve complex problems and bring innovative ideas to life. Let's create something amazing together!</p>
+                        </div>
+                        
+                        <div class="mt-8 flex space-x-4">
+                            <a href="mailto:sarah@example.com" class="inline-flex items-center px-6 py-3 bg-pink-light text-white font-medium rounded-lg hover:bg-pink-600 transition-colors duration-200">
+                                Contact Me
+                            </a>
+                            <a href="#" class="inline-flex items-center px-6 py-3 border border-pink-light text-pink-600 font-medium rounded-lg hover:bg-pink-50 transition-colors duration-200">
+                                View Work
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="order-1 md:order-2">
+                        <!-- Professional headshot of a smiling woman in business casual attire -->
+                        <img src="https://pixabay.com/get/gf7113e446371a39440fd68adff2fbc79d4df686f97d10ebf1611c3868e6a882f28b3901557aceea0d7e89928f580475eb3ad43b434a0669644149108ae471950_1280.jpg" 
+                             alt="Sarah Johnson profile photo" 
+                             class="w-full max-w-md mx-auto rounded-2xl shadow-lg" 
+                             data-mock-image="true" 
+                             data-implementation="Replace with actual profile photo" />
+                    </div>
+                </div>
+
+                <!-- Skills Section -->
+                <div class="mt-16">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-8 text-center">Skills & Expertise</h3>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="text-center p-6 bg-white rounded-xl shadow-sm border border-pink-100">
+                            <div class="w-12 h-12 bg-pink-lightest rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                <svg class="w-6 h-6 text-pink-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a4 4 0 004-4V5z"/>
+                                </svg>
+                            </div>
+                            <h4 class="text-lg font-medium text-gray-900 mb-2" data-mock="true">UI/UX Design</h4>
+                            <p class="text-gray-600" data-mock="true">Creating intuitive and beautiful user interfaces that enhance user experience</p>
+                        </div>
+                        
+                        <div class="text-center p-6 bg-white rounded-xl shadow-sm border border-pink-100">
+                            <div class="w-12 h-12 bg-pink-lightest rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                <svg class="w-6 h-6 text-pink-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                                </svg>
+                            </div>
+                            <h4 class="text-lg font-medium text-gray-900 mb-2" data-mock="true">Frontend Development</h4>
+                            <p class="text-gray-600" data-mock="true">Bringing designs to life with modern web technologies and frameworks</p>
+                        </div>
+                        
+                        <div class="text-center p-6 bg-white rounded-xl shadow-sm border border-pink-100">
+                            <div class="w-12 h-12 bg-pink-lightest rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                <svg class="w-6 h-6 text-pink-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            </div>
+                            <h4 class="text-lg font-medium text-gray-900 mb-2" data-mock="true">Brand Identity</h4>
+                            <p class="text-gray-600" data-mock="true">Developing cohesive visual identities that tell compelling brand stories</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- @END_COMPONENT: AboutPage -->
+
+        <!-- @COMPONENT: ProjectsPage -->
+        <div id="projects-page" class="page-content page-transition fade-out hidden">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">My Work</h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-mock="true">A selection of projects that showcase my design process and problem-solving approach</p>
+                </div>
+
+                <!-- @MAP: projects.map(project => ( -->
+                <div class="grid gap-12">
+                    <!-- Project 1 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-pink-100">
+                        <div class="md:flex">
+                            <div class="md:w-1/2">
+                                <!-- Modern e-commerce website interface showing clean product layouts -->
+                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                                     alt="E-commerce platform design" 
+                                     class="w-full h-64 md:h-full object-cover"
+                                     data-mock-image="true" />
+                            </div>
+                            <div class="md:w-1/2 p-8">
+                                <div class="flex items-center mb-4">
+                                    <span class="px-3 py-1 bg-pink-lightest text-pink-600 text-sm font-medium rounded-full" data-mock="true">E-commerce</span>
+                                </div>
+                                <h3 class="text-2xl font-semibold text-gray-900 mb-4" data-mock="true">Bloom Boutique</h3>
+                                <p class="text-gray-600 mb-6" data-mock="true">A complete redesign of an online fashion retailer's platform, focusing on improving user experience and conversion rates. The new design increased sales by 40% and reduced cart abandonment.</p>
+                                
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded" data-mock="true">UI/UX Design</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded" data-mock="true">User Research</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded" data-mock="true">Prototyping</span>
+                                </div>
+                                
+                                <div class="flex space-x-4">
+                                    <a href="#" class="inline-flex items-center text-pink-600 hover:text-pink-700 font-medium">
+                                        View Live Site 
+                                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                        </svg>
+                                    </a>
+                                    <a href="#" class="inline-flex items-center text-pink-600 hover:text-pink-700 font-medium">
+                                        Case Study
+                                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-pink-100">
+                        <div class="md:flex">
+                            <div class="md:w-1/2 md:order-2">
+                                <!-- Mobile app interface displaying clean dashboard design -->
+                                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                                     alt="Mobile fitness app design" 
+                                     class="w-full h-64 md:h-full object-cover"
+                                     data-mock-image="true" />
+                            </div>
+                            <div class="md:w-1/2 md:order-1 p-8">
+                                <div class="flex items-center mb-4">
+                                    <span class="px-3 py-1 bg-pink-lightest text-pink-600 text-sm font-medium rounded-full" data-mock="true">Mobile App</span>
+                                </div>
+                                <h3 class="text-2xl font-semibold text-gray-900 mb-4" data-mock="true">FitTrack Pro</h3>
+                                <p class="text-gray-600 mb-6" data-mock="true">A comprehensive fitness tracking app that helps users monitor their workouts, nutrition, and progress. The intuitive design encourages daily engagement and habit formation.</p>
+                                
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded" data-mock="true">Mobile Design</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded" data-mock="true">Data Visualization</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded" data-mock="true">User Testing</span>
+                                </div>
+                                
+                                <div class="flex space-x-4">
+                                    <a href="#" class="inline-flex items-center text-pink-600 hover:text-pink-700 font-medium">
+                                        App Store
+                                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                        </svg>
+                                    </a>
+                                    <a href="#" class="inline-flex items-center text-pink-600 hover:text-pink-700 font-medium">
+                                        Design Process
+                                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-pink-100">
+                        <div class="md:flex">
+                            <div class="md:w-1/2">
+                                <!-- Corporate website design showcasing professional layout -->
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                                     alt="Corporate website redesign" 
+                                     class="w-full h-64 md:h-full object-cover"
+                                     data-mock-image="true" />
+                            </div>
+                            <div class="md:w-1/2 p-8">
+                                <div class="flex items-center mb-4">
+                                    <span class="px-3 py-1 bg-pink-lightest text-pink-600 text-sm font-medium rounded-full" data-mock="true">Website</span>
+                                </div>
+                                <h3 class="text-2xl font-semibold text-gray-900 mb-4" data-mock="true">TechFlow Solutions</h3>
+                                <p class="text-gray-600 mb-6" data-mock="true">Brand identity and website redesign for a B2B software company. The modern, professional design helped establish credibility and generate 60% more qualified leads.</p>
+                                
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded" data-mock="true">Web Design</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded" data-mock="true">Brand Identity</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded" data-mock="true">Content Strategy</span>
+                                </div>
+                                
+                                <div class="flex space-x-4">
+                                    <a href="#" class="inline-flex items-center text-pink-600 hover:text-pink-700 font-medium">
+                                        Visit Website
+                                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                        </svg>
+                                    </a>
+                                    <a href="#" class="inline-flex items-center text-pink-600 hover:text-pink-700 font-medium">
+                                        Brand Guide
+                                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+        </div>
+        <!-- @END_COMPONENT: ProjectsPage -->
+
+        <!-- @COMPONENT: ResumePage -->
+        <div id="resume-page" class="page-content page-transition fade-out hidden">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <!-- Header -->
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Resume</h2>
+                    <p class="text-xl text-gray-600 mb-6" data-mock="true">UI/UX Designer & Frontend Developer</p>
+                    <a href="#" class="inline-flex items-center px-6 py-3 bg-pink-light text-white font-medium rounded-lg hover:bg-pink-600 transition-colors duration-200">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        Download PDF
+                    </a>
+                </div>
+
+                <!-- Resume Content -->
+                <div class="bg-white rounded-xl shadow-lg border border-pink-100 p-8 md:p-12">
+                    <!-- Experience -->
+                    <div class="mb-12">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-6 border-b border-pink-100 pb-2">Experience</h3>
+                        
+                        <div class="space-y-8">
+                            <div data-mock="true">
+                                <div class="flex flex-col md:flex-row md:justify-between mb-2">
+                                    <h4 class="text-lg font-medium text-gray-900">Senior UI/UX Designer</h4>
+                                    <span class="text-gray-600">2021 - Present</span>
+                                </div>
+                                <p class="text-pink-600 font-medium mb-3">Creative Studio Inc.</p>
+                                <ul class="text-gray-600 space-y-1 ml-4">
+                                    <li>• Led design for 15+ client projects, resulting in average 35% increase in user engagement</li>
+                                    <li>• Mentored junior designers and established design system standards</li>
+                                    <li>• Collaborated with development teams to ensure pixel-perfect implementation</li>
+                                </ul>
+                            </div>
+
+                            <div data-mock="true">
+                                <div class="flex flex-col md:flex-row md:justify-between mb-2">
+                                    <h4 class="text-lg font-medium text-gray-900">UI/UX Designer</h4>
+                                    <span class="text-gray-600">2019 - 2021</span>
+                                </div>
+                                <p class="text-pink-600 font-medium mb-3">TechStart Solutions</p>
+                                <ul class="text-gray-600 space-y-1 ml-4">
+                                    <li>• Designed user interfaces for B2B SaaS applications</li>
+                                    <li>• Conducted user research and usability testing sessions</li>
+                                    <li>• Created wireframes, prototypes, and high-fidelity mockups</li>
+                                </ul>
+                            </div>
+
+                            <div data-mock="true">
+                                <div class="flex flex-col md:flex-row md:justify-between mb-2">
+                                    <h4 class="text-lg font-medium text-gray-900">Junior Frontend Developer</h4>
+                                    <span class="text-gray-600">2017 - 2019</span>
+                                </div>
+                                <p class="text-pink-600 font-medium mb-3">WebCraft Agency</p>
+                                <ul class="text-gray-600 space-y-1 ml-4">
+                                    <li>• Built responsive websites using HTML, CSS, and JavaScript</li>
+                                    <li>• Collaborated with designers to implement pixel-perfect designs</li>
+                                    <li>• Optimized websites for performance and accessibility</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="mb-12">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-6 border-b border-pink-100 pb-2">Education</h3>
+                        
+                        <div data-mock="true">
+                            <div class="flex flex-col md:flex-row md:justify-between mb-2">
+                                <h4 class="text-lg font-medium text-gray-900">Bachelor of Fine Arts in Graphic Design</h4>
+                                <span class="text-gray-600">2013 - 2017</span>
+                            </div>
+                            <p class="text-pink-600 font-medium mb-3">State University of Design</p>
+                            <p class="text-gray-600">Magna Cum Laude • Dean's List • Design Excellence Award</p>
+                        </div>
+                    </div>
+
+                    <!-- Skills -->
+                    <div class="mb-12">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-6 border-b border-pink-100 pb-2">Skills</h3>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-medium text-gray-900 mb-3">Design Tools</h4>
+                                <div class="flex flex-wrap gap-2" data-mock="true">
+                                    <span class="px-3 py-1 bg-pink-lightest text-pink-600 text-sm rounded">Figma</span>
+                                    <span class="px-3 py-1 bg-pink-lightest text-pink-600 text-sm rounded">Sketch</span>
+                                    <span class="px-3 py-1 bg-pink-lightest text-pink-600 text-sm rounded">Adobe Creative Suite</span>
+                                    <span class="px-3 py-1 bg-pink-lightest text-pink-600 text-sm rounded">Principle</span>
+                                    <span class="px-3 py-1 bg-pink-lightest text-pink-600 text-sm rounded">InVision</span>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-medium text-gray-900 mb-3">Development</h4>
+                                <div class="flex flex-wrap gap-2" data-mock="true">
+                                    <span class="px-3 py-1 bg-pink-lightest text-pink-600 text-sm rounded">HTML/CSS</span>
+                                    <span class="px-3 py-1 bg-pink-lightest text-pink-600 text-sm rounded">JavaScript</span>
+                                    <span class="px-3 py-1 bg-pink-lightest text-pink-600 text-sm rounded">React</span>
+                                    <span class="px-3 py-1 bg-pink-lightest text-pink-600 text-sm rounded">Tailwind CSS</span>
+                                    <span class="px-3 py-1 bg-pink-lightest text-pink-600 text-sm rounded">Git</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certifications -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-6 border-b border-pink-100 pb-2">Certifications</h3>
+                        
+                        <div class="space-y-4" data-mock="true">
+                            <div>
+                                <h4 class="font-medium text-gray-900">Google UX Design Certificate</h4>
+                                <p class="text-gray-600">Coursera • 2021</p>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-900">Certified Usability Analyst (CUA)</h4>
+                                <p class="text-gray-600">Human Factors International • 2020</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- @END_COMPONENT: ResumePage -->
+
+    </main>
+    <!-- @END_COMPONENT: PageContainer -->
+
+    <script>
+        // TODO: Implement proper routing and state management in React
+        (function() {
+            let currentPage = 'about';
+
+            function showPage(pageId) {
+                // Hide current page
+                const currentEl = document.getElementById(currentPage + '-page');
+                if (currentEl) {
+                    currentEl.classList.add('fade-out');
+                    currentEl.classList.remove('fade-in');
+                    
+                    setTimeout(() => {
+                        currentEl.classList.add('hidden');
+                    }, 150);
+                }
+
+                // Show new page
+                setTimeout(() => {
+                    const newEl = document.getElementById(pageId + '-page');
+                    if (newEl) {
+                        newEl.classList.remove('hidden');
+                        setTimeout(() => {
+                            newEl.classList.remove('fade-out');
+                            newEl.classList.add('fade-in');
+                        }, 50);
+                    }
+                }, 150);
+
+                // Update navigation
+                document.querySelectorAll('.nav-link, .nav-link-mobile').forEach(link => {
+                    link.classList.remove('text-pink-600', 'bg-pink-50');
+                    link.classList.add('text-gray-700');
+                });
+
+                const activeLinks = document.querySelectorAll(`[data-page="${pageId}"]`);
+                activeLinks.forEach(link => {
+                    link.classList.remove('text-gray-700');
+                    link.classList.add('text-pink-600');
+                });
+
+                currentPage = pageId;
+            }
+
+            function toggleMobileMenu() {
+                const menu = document.getElementById('mobile-menu');
+                menu.classList.toggle('hidden');
+            }
+
+            // Make functions globally available
+            window.showPage = showPage;
+            window.toggleMobileMenu = toggleMobileMenu;
+
+            // Initialize
+            showPage('about');
+        })();
+    </script>
+
+</body>
+</html>

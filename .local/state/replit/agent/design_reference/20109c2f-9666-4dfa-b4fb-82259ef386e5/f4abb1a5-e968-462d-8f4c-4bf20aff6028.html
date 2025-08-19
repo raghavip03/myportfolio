@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Anderson - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-gray-50 text-slate-800 scroll-smooth">
+    <!-- Navigation -->
+    <!-- @COMPONENT: NavigationBar [sticky positioning, smooth scroll links] -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-xl font-bold text-slate-800" data-bind="user.name">John Anderson</div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-slate-600 hover:text-blue-600 transition-colors duration-200" data-event="click:smoothScroll">About</a>
+                    <a href="#projects" class="text-slate-600 hover:text-blue-600 transition-colors duration-200" data-event="click:smoothScroll">Projects</a>
+                    <a href="#resume" class="text-slate-600 hover:text-blue-600 transition-colors duration-200" data-event="click:smoothScroll">Resume</a>
+                    <a href="#contact" class="text-slate-600 hover:text-blue-600 transition-colors duration-200" data-event="click:smoothScroll">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-slate-600 hover:text-blue-600 transition-colors" data-event="click:toggleMobileMenu">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <!-- @STATE: mobileMenuOpen:boolean = false -->
+            <div class="md:hidden mt-4 pb-4 border-t border-gray-200 hidden" data-mock="true" id="mobile-menu">
+                <div class="flex flex-col space-y-3 mt-4">
+                    <a href="#about" class="text-slate-600 hover:text-blue-600 transition-colors duration-200" data-event="click:smoothScroll">About</a>
+                    <a href="#projects" class="text-slate-600 hover:text-blue-600 transition-colors duration-200" data-event="click:smoothScroll">Projects</a>
+                    <a href="#resume" class="text-slate-600 hover:text-blue-600 transition-colors duration-200" data-event="click:smoothScroll">Resume</a>
+                    <a href="#contact" class="text-slate-600 hover:text-blue-600 transition-colors duration-200" data-event="click:smoothScroll">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: NavigationBar -->
+
+    <!-- Hero Section -->
+    <!-- @COMPONENT: HeroSection [full viewport height, centered content] -->
+    <section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 pt-20">
+        <div class="max-w-4xl mx-auto px-6 text-center animate-fade-in">
+            <div class="mb-8">
+                <!-- Professional headshot placeholder -->
+                <div class="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-r from-blue-400 to-indigo-500 flex items-center justify-center text-white text-4xl font-bold shadow-lg" data-mock-image="true" data-implementation="Replace with actual headshot">
+                    JA
+                </div>
+            </div>
+            
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 text-slate-800 animate-slide-up" data-bind="user.name">John Anderson</h1>
+            <p class="text-xl md:text-2xl text-slate-600 mb-8 animate-slide-up" data-bind="user.title" data-mock="true">Full-Stack Developer & UI/UX Designer</p>
+            <p class="text-lg text-slate-500 mb-10 max-w-2xl mx-auto leading-relaxed animate-slide-up" data-bind="user.heroDescription" data-mock="true">
+                Passionate about creating exceptional digital experiences through clean code and thoughtful design. 
+                I build modern web applications that solve real problems.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
+                <a href="#projects" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium shadow-md" data-event="click:smoothScroll">
+                    View My Work
+                </a>
+                <a href="#contact" class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-200 font-medium" data-event="click:smoothScroll">
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: HeroSection -->
+
+    <!-- About Section -->
+    <!-- @COMPONENT: AboutSection [two-column layout, personal info] -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-slate-800">About Me</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <p class="text-lg text-slate-600 leading-relaxed" data-bind="user.aboutDescription1" data-mock="true">
+                        Hello! I'm John, a passionate full-stack developer with over 5 years of experience creating 
+                        digital solutions that make a difference. I specialize in modern web technologies and have a 
+                        keen eye for design and user experience.
+                    </p>
+                    <p class="text-lg text-slate-600 leading-relaxed" data-bind="user.aboutDescription2" data-mock="true">
+                        When I'm not coding, you can find me exploring new technologies, contributing to open-source 
+                        projects, or hiking in the great outdoors. I believe in continuous learning and staying 
+                        up-to-date with the latest industry trends.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mt-8">
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <div class="text-2xl font-bold text-blue-600" data-bind="user.experience" data-mock="true">5+</div>
+                            <div class="text-sm text-slate-600">Years Experience</div>
+                        </div>
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <div class="text-2xl font-bold text-blue-600" data-bind="user.projectsCompleted" data-mock="true">50+</div>
+                            <div class="text-sm text-slate-600">Projects Completed</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-semibold mb-6 text-slate-800">Skills & Technologies</h3>
+                    
+                    <!-- @MAP: skills.map(skill => ( -->
+                    <div class="space-y-4" data-mock="true">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-slate-700">JavaScript/TypeScript</span>
+                                <span class="text-blue-600">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-slate-700">React/Next.js</span>
+                                <span class="text-blue-600">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-slate-700">Node.js/Express</span>
+                                <span class="text-blue-600">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-slate-700">UI/UX Design</span>
+                                <span class="text-blue-600">75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- @END_MAP )) -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: AboutSection -->
+
+    <!-- Projects Section -->
+    <!-- @COMPONENT: ProjectsSection [card grid layout, project showcase] -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-slate-800">Featured Projects</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto" data-mock="true">
+                    Here are some of my recent projects that showcase my skills in full-stack development and design.
+                </p>
+            </div>
+            
+            <!-- @MAP: projects.map(project => ( -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" data-mock="true">
+                <!-- Project Card 1 -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden group">
+                    <!-- Modern e-commerce website dashboard with clean interface -->
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" 
+                         alt="E-commerce platform dashboard" 
+                         class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" 
+                         data-mock-image="true" />
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-slate-800" data-bind="project.title">E-Commerce Platform</h3>
+                        <p class="text-slate-600 mb-4" data-bind="project.description">
+                            A full-stack e-commerce solution built with React, Node.js, and MongoDB. Features include 
+                            user authentication, payment processing, and admin dashboard.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 text-sm rounded-full">React</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 text-sm rounded-full">Node.js</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 text-sm rounded-full">MongoDB</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-blue-600 hover:text-blue-700 transition-colors" data-event="click:openLiveDemo" data-mock="true">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
+                            <a href="#" class="text-slate-600 hover:text-slate-700 transition-colors" data-event="click:openGithub" data-mock="true">
+                                <i class="fab fa-github mr-2"></i>GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 2 -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden group">
+                    <!-- Task management application with kanban board layout -->
+                    <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" 
+                         alt="Task management application interface" 
+                         class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" 
+                         data-mock-image="true" />
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-slate-800" data-bind="project.title">Task Management App</h3>
+                        <p class="text-slate-600 mb-4" data-bind="project.description">
+                            A collaborative project management tool with real-time updates, drag-and-drop functionality, 
+                            and team collaboration features.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 text-sm rounded-full">Vue.js</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 text-sm rounded-full">Firebase</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 text-sm rounded-full">Tailwind CSS</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-blue-600 hover:text-blue-700 transition-colors" data-event="click:openLiveDemo" data-mock="true">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
+                            <a href="#" class="text-slate-600 hover:text-slate-700 transition-colors" data-event="click:openGithub" data-mock="true">
+                                <i class="fab fa-github mr-2"></i>GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 3 -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden group">
+                    <!-- Weather application showing beautiful weather dashboard -->
+                    <img src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" 
+                         alt="Weather application dashboard with beautiful sky background" 
+                         class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" 
+                         data-mock-image="true" />
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-slate-800" data-bind="project.title">Weather Dashboard</h3>
+                        <p class="text-slate-600 mb-4" data-bind="project.description">
+                            A beautiful weather application with location-based forecasts, interactive maps, 
+                            and detailed weather analytics powered by multiple weather APIs.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 text-sm rounded-full">React</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 text-sm rounded-full">Chart.js</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 text-sm rounded-full">Weather API</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-blue-600 hover:text-blue-700 transition-colors" data-event="click:openLiveDemo" data-mock="true">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
+                            <a href="#" class="text-slate-600 hover:text-slate-700 transition-colors" data-event="click:openGithub" data-mock="true">
+                                <i class="fab fa-github mr-2"></i>GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- @END_MAP )) -->
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium" data-event="click:viewAllProjects" data-mock="true">
+                    View All Projects
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ProjectsSection -->
+
+    <!-- Resume Section -->
+    <!-- @COMPONENT: ResumeSection [timeline layout, downloadable PDF] -->
+    <section id="resume" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-slate-800">Resume</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-lg text-slate-600 mb-8" data-mock="true">
+                    My professional journey and key achievements in software development.
+                </p>
+                <a href="#" class="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium shadow-md" data-event="click:downloadPDF" data-mock="true">
+                    <i class="fas fa-download mr-2"></i>
+                    Download PDF Resume
+                </a>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Experience -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-8 text-slate-800 flex items-center">
+                        <i class="fas fa-briefcase mr-3 text-blue-600"></i>
+                        Experience
+                    </h3>
+                    
+                    <!-- @MAP: experiences.map(experience => ( -->
+                    <div class="space-y-8" data-mock="true">
+                        <div class="relative pl-8 border-l-2 border-blue-200">
+                            <div class="absolute w-4 h-4 bg-blue-600 rounded-full -left-2 top-2"></div>
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <h4 class="text-lg font-semibold text-slate-800" data-bind="experience.title">Senior Full-Stack Developer</h4>
+                                <p class="text-blue-600 font-medium mb-2" data-bind="experience.company">TechCorp Inc.</p>
+                                <p class="text-slate-500 text-sm mb-3" data-bind="experience.period">2022 - Present</p>
+                                <p class="text-slate-600 leading-relaxed" data-bind="experience.description">
+                                    Led development of multiple web applications, mentored junior developers, 
+                                    and implemented modern development practices that improved team productivity by 40%.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="relative pl-8 border-l-2 border-blue-200">
+                            <div class="absolute w-4 h-4 bg-blue-600 rounded-full -left-2 top-2"></div>
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <h4 class="text-lg font-semibold text-slate-800" data-bind="experience.title">Frontend Developer</h4>
+                                <p class="text-blue-600 font-medium mb-2" data-bind="experience.company">StartupXYZ</p>
+                                <p class="text-slate-500 text-sm mb-3" data-bind="experience.period">2020 - 2022</p>
+                                <p class="text-slate-600 leading-relaxed" data-bind="experience.description">
+                                    Developed responsive web applications using React and modern JavaScript frameworks. 
+                                    Collaborated closely with design team to implement pixel-perfect user interfaces.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- @END_MAP )) -->
+                </div>
+                
+                <!-- Education & Certifications -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-8 text-slate-800 flex items-center">
+                        <i class="fas fa-graduation-cap mr-3 text-blue-600"></i>
+                        Education
+                    </h3>
+                    
+                    <!-- @MAP: education.map(edu => ( -->
+                    <div class="space-y-8" data-mock="true">
+                        <div class="relative pl-8 border-l-2 border-blue-200">
+                            <div class="absolute w-4 h-4 bg-blue-600 rounded-full -left-2 top-2"></div>
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <h4 class="text-lg font-semibold text-slate-800" data-bind="education.degree">Bachelor of Computer Science</h4>
+                                <p class="text-blue-600 font-medium mb-2" data-bind="education.institution">University of Technology</p>
+                                <p class="text-slate-500 text-sm mb-3" data-bind="education.period">2016 - 2020</p>
+                                <p class="text-slate-600" data-bind="education.description">
+                                    Graduated Magna Cum Laude with focus on Software Engineering and Web Development.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- @END_MAP )) -->
+                    
+                    <h3 class="text-2xl font-semibold mb-8 mt-12 text-slate-800 flex items-center">
+                        <i class="fas fa-certificate mr-3 text-blue-600"></i>
+                        Certifications
+                    </h3>
+                    
+                    <!-- @MAP: certifications.map(cert => ( -->
+                    <div class="space-y-4" data-mock="true">
+                        <div class="flex items-center p-4 bg-gray-50 rounded-lg">
+                            <i class="fas fa-award text-blue-600 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold text-slate-800" data-bind="certification.title">AWS Certified Developer</h4>
+                                <p class="text-slate-500 text-sm" data-bind="certification.date">2023</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-4 bg-gray-50 rounded-lg">
+                            <i class="fas fa-award text-blue-600 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold text-slate-800" data-bind="certification.title">Google Analytics Certified</h4>
+                                <p class="text-slate-500 text-sm" data-bind="certification.date">2022</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- @END_MAP )) -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ResumeSection -->
+
+    <!-- Contact Section -->
+    <!-- @COMPONENT: ContactSection [contact form, social links] -->
+    <section id="contact" class="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-slate-800">Get In Touch</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-lg text-slate-600" data-mock="true">
+                    I'm always interested in hearing about new opportunities and exciting projects.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <h3 class="text-2xl font-semibold mb-6 text-slate-800">Let's Connect</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-800">Email</h4>
+                                <p class="text-slate-600" data-bind="user.email" data-mock="true">john.anderson@email.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-800">Phone</h4>
+                                <p class="text-slate-600" data-bind="user.phone" data-mock="true">+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-800">Location</h4>
+                                <p class="text-slate-600" data-bind="user.location" data-mock="true">San Francisco, CA</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="pt-8">
+                        <h4 class="text-lg font-semibold mb-4 text-slate-800">Follow Me</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 bg-slate-700 text-white rounded-lg flex items-center justify-center hover:bg-slate-800 transition-colors duration-200" data-mock="true">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors duration-200" data-mock="true">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-blue-400 text-white rounded-lg flex items-center justify-center hover:bg-blue-500 transition-colors duration-200" data-mock="true">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-6 text-slate-800">Send Message</h3>
+                    
+                    <!-- @FUNCTIONALITY: Contact form should implement email sending functionality -->
+                    <form class="space-y-6" data-event="submit:handleContactForm" data-mock="true">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-slate-700 mb-2">Name</label>
+                            <input type="text" id="name" name="name" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200" 
+                                   placeholder="Your Name" data-mock="true">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-slate-700 mb-2">Email</label>
+                            <input type="email" id="email" name="email" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200" 
+                                   placeholder="your.email@example.com" data-mock="true">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-slate-700 mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200" 
+                                   placeholder="Project Inquiry" data-mock="true">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-slate-700 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" required 
+                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 resize-vertical" 
+                                      placeholder="Tell me about your project..." data-mock="true"></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium shadow-md" 
+                                data-event="click:submitForm" data-implementation="Should validate form before submission">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ContactSection -->
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-white py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center">
+                <p class="text-slate-300 mb-4" data-mock="true">
+                    © 2024 John Anderson. All rights reserved. Built with ❤️ and modern web technologies.
+                </p>
+                <p class="text-slate-400 text-sm" data-mock="true">
+                    This portfolio is constantly evolving. Last updated: December 2024
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.querySelector('[data-event="click:toggleMobileMenu"]');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                    const icon = this.querySelector('i');
+                    if (mobileMenu.classList.contains('hidden')) {
+                        icon.className = 'fas fa-bars text-xl';
+                    } else {
+                        icon.className = 'fas fa-times text-xl';
+                    }
+                });
+            }
+
+            // Add scroll effect to navigation
+            window.addEventListener('scroll', function() {
+                const nav = document.querySelector('nav');
+                if (window.scrollY > 100) {
+                    nav.classList.add('bg-white/95');
+                } else {
+                    nav.classList.remove('bg-white/95');
+                }
+            });
+
+            // Add animation on scroll for elements
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe sections for animation
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+
+            // TODO: Implement form submission logic
+            // TODO: Implement project link functionality
+            // TODO: Add resume PDF download functionality
+            // TODO: Implement contact form email sending
+        })();
+    </script>
+</body>
+</html>
