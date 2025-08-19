@@ -1,8 +1,6 @@
 import { Mail, ExternalLink, Code, Palette, Zap } from "lucide-react";
 import { Link } from "wouter";
 
-import raghavi_photo from "@assets/raghavi_photo.jpg";
-
 export default function About() {
   const skills = [
     {
@@ -21,7 +19,7 @@ export default function About() {
       icon: Zap,
       title: "AI Research",
       description:
-        "I conduct AI research focused on human-centered interaction, developing annotation models and applying NLP techniques (BERT, RoBERTa, VADER, HDB-SCAN) to analyze chatbot interactions and build adaptive, ethically aligned ai conversational systems.",
+        "I conduct AI research focused on human-centered interaction, developing annotation models and applying NLP techniques (BERT, RoBERTa, VADER, HDB-SCAN) to analyze chatbot interactions and build adaptive, ethically aligned AI conversational systems.",
     },
   ];
 
@@ -76,7 +74,7 @@ export default function About() {
 
           <div className="order-1 md:order-2">
             <img
-              src={raghavi_photo}
+              src="/raghavi_photo.jpg"
               alt="Raghavi Putluri profile photo"
               data-testid="img-profile"
               className="w-full max-w-md mx-auto rounded-2xl shadow-lg object-cover aspect-square"
